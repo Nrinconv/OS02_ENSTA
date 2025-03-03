@@ -12,6 +12,9 @@ Ce dépôt contient les travaux réalisés dans le cadre du cours **Systèmes pa
 
 3. [Travaux dirigés n°3](./TP3/)  
    📄 [Rapport du TP3](./TP3/OS02_TP3_RINCON_Nicolas.pdf)
+   
+4. [Travaux dirigés n°4](./TP4/)  
+   📄 [Rapport du TP4](./TP4/OS02_TP4_RINCON_Nicolas.pdf)
 
 ## 📜 Description
 
