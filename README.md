@@ -16,10 +16,10 @@ Ce dépôt contient les travaux réalisés dans le cadre du cours **Systèmes pa
 4. [Travaux dirigés n°4](./TP4/)  
    📄 [Rapport du TP4](./TP4/OS02_TP4_RINCON_Nicolas.pdf)
    
-6. [Travaux dirigés n°5](./TP5/)  
+5. [Travaux dirigés n°5](./TP5/)  
 
-4. [Projet](./Projet/)  
-   📄 [Rapport du TP4](./Projet/OS02_PROJET_DADA_RINCON.pdf)
+6. [Projet](./Projet/)  
+   📄 [Rapport du Projet](./Projet/OS02_PROJET_DADA_RINCON.pdf)
 
 ## 📜 Description
 
