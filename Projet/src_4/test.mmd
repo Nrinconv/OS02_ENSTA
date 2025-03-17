@@ -1,0 +1,42 @@
+%% Schéma des communications MPI - Propagation de feu
+flowchart TB
+    %% Définition des groupes
+    subgraph Display [Processus d'affichage]
+        Rank0(Rank 0 Globale\nAffichage SDL)
+    end
+
+    subgraph ComputeComm [Communicateur de calcul]
+        direction TB
+        subgraph ComputeMaster [Maître de calcul]
+            Rank1(Rank 1 Globale\nRank 0 dans ComputeComm\nCollecte et relais)
+        end
+
+        subgraph Workers [Processus de calcul]
+            Rank2(Rank 2 Globale\nSous-grille 1)
+            Rank3(Rank 3 Globale\nSous-grille 2)
+            RankN(Rank N Globale\nSous-grille N)
+        end
+    end
+
+    %% Échanges fantômes Nord/Sud
+    Rank2 -- MPI_Isend/MPI_Irecv\nCellules fantômes (tag 0/1) --> Rank3
+    Rank3 -- MPI_Isend/MPI_Irecv\nCellules fantômes (tag 0/1) --> Rank2
+
+    %% Calcul local
+    Rank2 -->|OpenMP\nPropagation locale| Rank2
+    Rank3 -->|OpenMP\nPropagation locale| Rank3
+
+    %% Gatherv vers maître de calcul
+    Rank2 -->|MPI_Gatherv\nDonnées locales (fire/veg)| Rank1
+    Rank3 -->|MPI_Gatherv\nDonnées locales (fire/veg)| Rank1
+    RankN -->|MPI_Gatherv\nDonnées locales (fire/veg)| Rank1
+
+    %% Envoi au display
+    Rank1 -->|MPI_Send\nGrille globale (tag 1/2)| Rank0
+
+    %% Synchronisation feu actif
+    all[All Processes] -- MPI_AllReduce\nMPI_SUM (actif?) --> all
+
+    %% Signal d'arrêt
+    Rank0 -->|MPI_Send\nSignal (tag 0, -1)| Rank1
+    Rank1 -->|MPI_Bcast\nPropagation signal| Workers

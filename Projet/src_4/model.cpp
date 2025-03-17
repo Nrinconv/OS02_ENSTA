@@ -93,12 +93,6 @@ void Model::update_fire_front() {
 // --------------------------------------------------------------------------------------------------------------------
 bool Model::update()
 {
-    static const std::size_t max_iterations = 2000;
-    
-    if (m_time_step >= max_iterations) {
-        std::cout << "[Model] Maximum iterations reached." << std::endl;
-        return false;
-    }
 
     auto next_front = m_fire_front;
     

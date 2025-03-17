@@ -7,68 +7,18 @@ Parametres définis pour la simulation :
         Nombre de cellules par direction : 1500
         Vecteur vitesse : [20, 12]
         Position initiale du foyer (col, ligne) : 12, 15
-Time step 100
-===============
-Time step 200
-===============
-Time step 300
-===============
-Time step 400
-===============
-Time step 500
-===============
-Arrêt de la simulation après 500 itérations.
-Temps moyen de mise à jour : 0.0245562 s
-Temps moyen d'affichage : 0.151334 s
-cedric@ns2:/media/cedric/DSCD/Projets/ENSTA/Parrallel_architcture/Cours_Ensta_2025/projet/src_0$ make all
-g++ -fopenmp -std=c++17 -Wall -O3 -march=native -MMD -c model.cpp -o model.o
-g++ -fopenmp -std=c++17 -Wall -O3 -march=native display.o model.o simulation.o -o simulation.exe -lpthread -lSDL2
-cedric@ns2:/media/cedric/DSCD/Projets/ENSTA/Parrallel_architcture/Cours_Ensta_2025/projet/src_0$ simulation.exe -l 400 -n 1500 -w 20.0,12.0 -s 12,15
-Parametres définis pour la simulation : 
-        Taille du terrain : 400
-        Nombre de cellules par direction : 1500
-        Vecteur vitesse : [20, 12]
-        Position initiale du foyer (col, ligne) : 12, 15
-Time step 100
-===============
-Time step 200
-===============
-Time step 300
-===============
-Time step 400
-===============
-Time step 500
-===============
-Time step 600
-===============
-Time step 700
-===============
-Time step 800
-===============
-Time step 900
-===============
-Time step 1000
-===============
-Time step 1100
-===============
-Time step 1200
-===============
-Time step 1300
-===============
-Time step 1400
-===============
-Time step 1500
-===============
-Time step 1600
-===============
-Time step 1700
-===============
-Time step 1800
-===============
-Time step 1900
-===============
-Time step 2000
-===============
+
 Arrêt de la simulation après 2000 itérations.
 Temps moyen de mise à jour : 0.129754 s
 Temps moyen d'affichage : 0.167813 s
+
+cedric@ns2:/media/cedric/DSCD/Projets/ENSTA/Parrallel_architcture/Cours_Ensta_2025/projet/src_0$ ./simulation.exe -l 400 -n 2000 -w 20.0,12.0 -s 12,15
+Parametres définis pour la simulation : 
+        Taille du terrain : 400
+        Nombre de cellules par direction : 2000
+        Vecteur vitesse : [20, 12]
+        Position initiale du foyer (col, ligne) : 12, 15
+
+Arrêt de la simulation après 2000 itérations.
+Temps moyen de mise à jour : 0.124577 s
+Temps moyen d'affichage : 0.286312 s

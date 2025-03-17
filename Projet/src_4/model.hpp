@@ -31,6 +31,7 @@ Model(double t_length, unsigned t_discretization, std::array<double,2> t_wind,
 
     bool update();
     void log_grids(std::size_t step) const;
+    int max_iterations = 2000;
 
     unsigned geometry() const { return m_geometry; }
     std::vector<std::uint8_t> vegetal_map() const { return m_vegetation_map; }
